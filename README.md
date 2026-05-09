@@ -65,8 +65,8 @@ flowchart LR
     Controller[Controller Layer<br/>@RestController + @Valid<br/>ResponseEntity] -->|DTO| Service
     Service[Service Layer<br/>@Service @Transactional<br/>regras de negocio] -->|Entity| Repository
     Repository[Repository Layer<br/>JpaRepository] -->|JPQL/SQL| DB[(H2 in-memory<br/>Flyway migrations)]
-    Service -.->|throws| GEH[GlobalExceptionHandler<br/>@RestControllerAdvice]
-    GEH -.->|JSON erro padronizado| Client
+    Service -. throws .-> GEH[GlobalExceptionHandler<br/>@RestControllerAdvice]
+    GEH -. "JSON erro padronizado" .-> Client
 ```
 
 ### Organização por feature
